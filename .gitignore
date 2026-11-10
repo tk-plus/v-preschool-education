@@ -1,0 +1,28 @@
+# IDE and OS
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Java
+java/target/
+java/build/
+java/.gradle/
+*.class
+
+# Node / front-end
+node_modules/
+h5/dist/
+h5/.vite/
+miniprogram/miniprogram_npm/
+
+# Local settings and secrets
+.env
+.env.*
+!.env.example
+*.log
+project.private.config.json
+application-local.yml
+application-local.yaml
+application-local.properties
