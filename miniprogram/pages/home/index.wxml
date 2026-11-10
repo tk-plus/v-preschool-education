@@ -1,0 +1,16 @@
+<view class="page">
+  <view class="hero">
+    <text class="eyebrow">每天一点点，知识会发芽</text>
+    <text class="title">知芽星球</text>
+    <text class="subtitle">选一个学习模块，开始今天的练习。</text>
+  </view>
+  <view class="module" bindtap="openIdiom">
+    <view class="module-icon">字</view>
+    <view class="module-content">
+      <text class="module-title">成语填字</text>
+      <text class="module-desc">看拼音，选汉字，补全成语</text>
+    </view>
+    <text class="arrow">›</text>
+  </view>
+  <view class="note">本地试玩版</view>
+</view>

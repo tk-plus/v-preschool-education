@@ -1,0 +1,11 @@
+{
+  "pages": ["pages/home/index", "pages/idiom/index"],
+  "window": {
+    "navigationBarTitleText": "知芽星球",
+    "navigationBarBackgroundColor": "#f7fbf5",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f7fbf5"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

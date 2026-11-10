@@ -15,6 +15,7 @@ java/.gradle/
 node_modules/
 h5/dist/
 h5/.vite/
+*.tsbuildinfo
 miniprogram/miniprogram_npm/
 
 # Local settings and secrets
@@ -22,6 +23,7 @@ miniprogram/miniprogram_npm/
 .env.*
 !.env.example
 *.log
+logs/
 project.private.config.json
 application-local.yml
 application-local.yaml

@@ -1,0 +1,88 @@
+<view class="page">
+  <view wx:if="{{!loading && !error && !locked && !completed}}" class="heading">
+    <text class="eyebrow">成语填字 · 第 {{levelNo}} 关</text>
+    <text class="title">{{title}}</text>
+    <text class="description">先点空位，再从下方选择汉字。</text>
+  </view>
+
+  <view wx:if="{{loading}}" class="message">正在准备题目…</view>
+  <view wx:elif="{{error}}" class="message">
+    <text>{{error}}</text>
+    <button class="retry" bindtap="start">重新连接</button>
+  </view>
+  <view wx:elif="{{locked}}" class="message">
+    <text class="result-title">第 {{levelNo}} 关需要购买解锁</text>
+    <view>前 {{freeLevelCount}} 关免费体验。</view>
+    <button class="submit" bindtap="returnHome">返回首页</button>
+  </view>
+  <view wx:elif="{{completed}}" class="message">
+    <text class="result-title">已完成当前全部关卡</text>
+    <button class="submit" bindtap="replayFirstLevel">再练第一关</button>
+    <button class="submit" bindtap="returnHome">返回首页</button>
+  </view>
+  <block wx:else>
+    <view class="question-list">
+      <view
+        wx:for="{{questions}}"
+        wx:key="id"
+        class="question {{item.active && !result ? 'active' : ''}}"
+        data-id="{{item.id}}"
+        bindtap="selectQuestion"
+      >
+        <text class="pinyin">{{item.promptPinyin}}</text>
+        <view class="characters">
+          <text>{{item.prefix}}</text>
+          <text class="blank {{item.selectedText ? 'filled' : ''}}"
+            >{{item.selectedText || '□'}}</text
+          >
+          <text>{{item.suffix}}</text>
+        </view>
+        <view class="clear-slot">
+          <text
+            wx:if="{{item.selectedText && !result}}"
+            class="clear"
+            data-id="{{item.id}}"
+            catchtap="clearQuestion"
+            >点此撤回</text
+          >
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{!result}}" class="tile-area">
+      <text class="section-title">选一个字填入空位</text>
+      <view class="tiles">
+        <view
+          wx:for="{{tiles}}"
+          wx:key="tileNo"
+          class="tile {{item.used ? 'used' : ''}}"
+          data-no="{{item.tileNo}}"
+          bindtap="selectTile"
+        >
+          <text class="tile-pinyin">{{item.pinyin}}</text>
+          <text class="tile-char">{{item.characterText}}</text>
+        </view>
+      </view>
+      <button class="submit" loading="{{submitting}}" bindtap="submit">
+        提交答案
+      </button>
+    </view>
+
+    <view wx:else class="result-area">
+      <text class="result-title"
+        >答对 {{result.correctCount}} / {{result.total}} 题</text
+      >
+      <view wx:for="{{result.results}}" wx:key="questionId" class="result-item">
+        <text class="result-mark {{item.correct ? 'correct' : 'wrong'}}"
+          >{{item.correct ? '答对了' : '再记一记'}}</text
+        >
+        <text class="result-word">{{item.sourceText}}</text>
+        <text class="result-pinyin">{{item.fullPinyin}}</text>
+        <text class="result-meaning">{{item.meaning}}</text>
+      </view>
+      <button class="submit" bindtap="nextLevel">
+        {{nextLevelNo ? '进入下一关' : '返回首页'}}
+      </button>
+    </view>
+  </block>
+</view>

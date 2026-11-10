@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: preschool-api
+  datasource:
+    url: ${DB_URL:jdbc:mysql://127.0.0.1:3306/preschool_education?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai}
+    username: ${DB_USER:root}
+    password: ${DB_PASSWORD:}
+  flyway:
+    enabled: true
+server:
+  port: ${PORT:9999}
+game:
+  idiom:
+    free-level-count: ${IDIOM_FREE_LEVEL_COUNT:10}
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+logging:
+  level:
+    com.zhiya.preschool: ${APP_LOG_LEVEL:INFO}
+  file:
+    name: ${LOG_FILE:logs/preschool-api.log}
+  logback:
+    rollingpolicy:
+      max-file-size: 10MB
+      max-history: 7

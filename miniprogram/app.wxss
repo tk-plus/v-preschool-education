@@ -1,0 +1,8 @@
+page {
+  background: #f7fbf5;
+  color: #26352a;
+  font-family: -apple-system, BlinkMacSystemFont, "Microsoft YaHei", sans-serif;
+}
+button {
+  border-radius: 18rpx;
+}
