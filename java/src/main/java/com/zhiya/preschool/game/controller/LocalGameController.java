@@ -1,12 +1,12 @@
-package com.zhiya.preschool.controller;
+package com.zhiya.preschool.game.controller;
 
-import com.zhiya.preschool.exception.GameException;
-import com.zhiya.preschool.service.GameService;
-import com.zhiya.preschool.service.GameService.Answer;
-import com.zhiya.preschool.service.GameService.CurrentGame;
-import com.zhiya.preschool.service.GameService.LevelView;
-import com.zhiya.preschool.service.GameService.PlaySession;
-import com.zhiya.preschool.service.GameService.SubmissionResult;
+import com.zhiya.preschool.game.exception.GameException;
+import com.zhiya.preschool.game.service.GameService;
+import com.zhiya.preschool.game.service.GameService.Answer;
+import com.zhiya.preschool.game.service.GameService.CurrentGame;
+import com.zhiya.preschool.game.service.GameService.LevelView;
+import com.zhiya.preschool.game.service.GameService.PlaySession;
+import com.zhiya.preschool.game.service.GameService.SubmissionResult;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;

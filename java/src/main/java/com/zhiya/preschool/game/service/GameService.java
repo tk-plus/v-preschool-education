@@ -1,12 +1,13 @@
-package com.zhiya.preschool.service;
+package com.zhiya.preschool.game.service;
 
-import com.zhiya.preschool.exception.GameException;
-import com.zhiya.preschool.mapper.GameMapper;
-import com.zhiya.preschool.mapper.GameMapper.LevelRow;
-import com.zhiya.preschool.mapper.GameMapper.QuestionRow;
-import com.zhiya.preschool.mapper.GameMapper.SessionInsert;
-import com.zhiya.preschool.mapper.GameMapper.SessionRow;
-import com.zhiya.preschool.mapper.GameMapper.TileRow;
+import com.zhiya.preschool.content.IdiomTiles;
+import com.zhiya.preschool.game.exception.GameException;
+import com.zhiya.preschool.game.mapper.GameMapper;
+import com.zhiya.preschool.game.mapper.GameMapper.LevelRow;
+import com.zhiya.preschool.game.mapper.GameMapper.QuestionRow;
+import com.zhiya.preschool.game.mapper.GameMapper.SessionInsert;
+import com.zhiya.preschool.game.mapper.GameMapper.SessionRow;
+import com.zhiya.preschool.game.mapper.GameMapper.TileRow;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -27,17 +28,6 @@ import org.springframework.transaction.annotation.Transactional;
 public class GameService {
 
     private static final Logger log = LoggerFactory.getLogger(GameService.class);
-
-    // 试玩题库的固定干扰字，与本回合的三个答案字一起组成十个候选字块。
-    private static final List<TileRow> DISTRACTORS = List.of(
-        new TileRow(0, "彩", "cǎi"),
-        new TileRow(0, "义", "yì"),
-        new TileRow(0, "颜", "yán"),
-        new TileRow(0, "兴", "xìng"),
-        new TileRow(0, "心", "xīn"),
-        new TileRow(0, "高", "gāo"),
-        new TileRow(0, "六", "liù")
-    );
 
     private final GameMapper mapper;
     // 按关卡序号判定免费范围，例如配置为 10 时，第 11 关开始需要购买解锁。
@@ -128,7 +118,9 @@ public class GameService {
         for (QuestionRow question : questions) {
             tiles.add(new TileRow(0, question.answerText(), question.answerPinyin()));
         }
-        tiles.addAll(DISTRACTORS);
+        for (var distractor : IdiomTiles.DISTRACTORS) {
+            tiles.add(new TileRow(0, distractor.character(), distractor.pinyin()));
+        }
         Collections.shuffle(tiles, random);
 
         // 字块序号以洗牌后的顺序为准，提交时用它识别选中的字块。

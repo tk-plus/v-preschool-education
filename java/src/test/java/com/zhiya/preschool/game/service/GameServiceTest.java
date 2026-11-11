@@ -1,17 +1,17 @@
-package com.zhiya.preschool.service;
+package com.zhiya.preschool.game.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import com.zhiya.preschool.exception.GameException;
-import com.zhiya.preschool.mapper.GameMapper;
-import com.zhiya.preschool.mapper.GameMapper.LevelRow;
-import com.zhiya.preschool.mapper.GameMapper.QuestionRow;
-import com.zhiya.preschool.mapper.GameMapper.SessionRow;
-import com.zhiya.preschool.mapper.GameMapper.TileRow;
-import com.zhiya.preschool.service.GameService.Answer;
+import com.zhiya.preschool.game.exception.GameException;
+import com.zhiya.preschool.game.mapper.GameMapper;
+import com.zhiya.preschool.game.mapper.GameMapper.LevelRow;
+import com.zhiya.preschool.game.mapper.GameMapper.QuestionRow;
+import com.zhiya.preschool.game.mapper.GameMapper.SessionRow;
+import com.zhiya.preschool.game.mapper.GameMapper.TileRow;
+import com.zhiya.preschool.game.service.GameService.Answer;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

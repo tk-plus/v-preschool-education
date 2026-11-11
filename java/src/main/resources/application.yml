@@ -9,9 +9,24 @@ spring:
     enabled: true
 server:
   port: ${PORT:9999}
+  servlet:
+    session:
+      cookie:
+        name: ZHIYA_ADMIN_SESSION
+        path: /api/admin
+        http-only: true
+        same-site: strict
+admin:
+  login:
+    username: ${ADMIN_USERNAME:admin}
+    password: ${ADMIN_PASSWORD:}
+idiom-ai:
+  endpoint: https://api.deepseek.com/chat/completions
+  model: deepseek-flash
+  api-key: ""
 game:
   idiom:
-    free-level-count: ${IDIOM_FREE_LEVEL_COUNT:10}
+    free-level-count: ${IDIOM_FREE_LEVEL_COUNT:300}
 mybatis:
   configuration:
     map-underscore-to-camel-case: true

@@ -1,4 +1,4 @@
-package com.zhiya.preschool.mapper;
+package com.zhiya.preschool.game.mapper;
 
 import java.util.List;
 import org.apache.ibatis.annotations.Insert;

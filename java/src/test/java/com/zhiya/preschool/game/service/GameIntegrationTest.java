@@ -1,4 +1,4 @@
-package com.zhiya.preschool.service;
+package com.zhiya.preschool.game.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -6,9 +6,9 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import com.zhiya.preschool.exception.GameException;
-import com.zhiya.preschool.service.GameService.Answer;
-import com.zhiya.preschool.service.GameService.PlaySession;
+import com.zhiya.preschool.game.exception.GameException;
+import com.zhiya.preschool.game.service.GameService.Answer;
+import com.zhiya.preschool.game.service.GameService.PlaySession;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
